@@ -1,0 +1,9 @@
+from sqlalchemy.orm import Session
+from . import SessionLocal  # or just SessionLocal if it's in the same file
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
